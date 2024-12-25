@@ -1,3 +1,5 @@
+export const API_KEY = process.env.TMDB_API_KEY
+
 export type movies = {
     id: number
     title: string
