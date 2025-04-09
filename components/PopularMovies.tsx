@@ -1,18 +1,12 @@
-import { API_KEY, movies } from '@/lib/types';
+import { popularMovies } from '@/lib/actions';
+import { movies } from '@/lib/types';
 import Image from 'next/image';
 import React from 'react'
 
 const PopularMovies = async () => {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
-
-    if (!response.ok) {
-        throw new Error("error fetching data");
-    }
-
-    const data = await response.json()
-    const movieList = data.results
-
+    const movieList = await popularMovies()
     console.log(movieList)
+
     return (
         <section>
             <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
@@ -21,7 +15,6 @@ const PopularMovies = async () => {
                         <Image
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                             alt={movie.title}
-                            layout="responsive"
                             width={300}
                             height={300}
                         />
