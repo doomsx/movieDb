@@ -5,6 +5,7 @@ const Navbar = () => {
     return (
         <div className='flex justify-between'>
             <Link href='/popular-movies' className="underline text-blue-500">Popular Movies</Link>
+            <Link href='/trending-movies' className="underline text-blue-500">Trening Movies</Link>
             <Link href='/login' className="underline text-blue-500">Login</Link>
         </div>
     )
