@@ -8,6 +8,7 @@ export const popularMovies = async () => {
     }
 
     const data = await response.json()
+    console.log(data.results)
     return data.results
 }
 
@@ -19,5 +20,6 @@ export const trendingMovies = async () => {
     }
 
     const data = await response.json()
+    console.log(data.results)
     return data.results
 }

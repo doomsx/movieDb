@@ -6,7 +6,7 @@ const Card = ({ movie }: { movie: movies }) => {
     return (
         <div className='border border-black p-4 my-5'>
             <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path || movie.backdrop_path}`}
                 alt={movie.title}
                 width={300}
                 height={300}
