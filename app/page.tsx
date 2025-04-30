@@ -2,7 +2,17 @@ export default async function Home() {
 
     return (
         <>
-            <h1>Home Page</h1>
+            <section>
+                <h1>Welcome to MovieHub</h1>
+                <p>Discover the latest trending and popular movies</p>
+            </section>
+
+            <section>
+            </section>
+
+            <section>
+            </section>
+
         </>
     )
 }
