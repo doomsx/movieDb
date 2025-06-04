@@ -1,5 +1,5 @@
 import { popularMovies, trendingMovies } from "@/lib/actions"
-import { movies } from "@/lib/types"
+import { previewMovies} from "@/lib/types"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -18,16 +18,18 @@ export default async function Home() {
                     <h2 className="text-2xl font-bold">Trending Movies</h2>
                     <Link href='/trending-movies' className="underline">See More</Link>
                 </div>
-                <div className="flex flex-row gap-3 mt-3">
-                    {trending.slice(0, 5).map((movie: movies) => (
-                        <div key={movie.id} className="">
+                <div className="grid grid-cols-2 gap-2 md:grid-cols-5">
+                    {trending.slice(0, 5).map((movie: previewMovies) => (
+                        <div key={movie.id} className="p-4 my-2">
                             <Image
-                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path || movie.backdrop_path}`}
                                 alt={movie.title}
                                 width={300}
                                 height={300}
                             />
-                            <h3 className="text-center">{movie.title}</h3>
+                            <div className="my-2">
+                                <h3 className="text-center">{movie.title}</h3>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -38,16 +40,18 @@ export default async function Home() {
                     <h2 className="text-2xl font-bold">Popular Movies</h2>
                     <Link href='/popular-movies' className="underline">See More</Link>
                 </div>
-                <div className="flex flex-row gap-3 mt-3">
-                    {popular.slice(0, 5).map((movie: movies) => (
-                        <div key={movie.id} className="">
+                <div className="grid grid-cols-2 gap-2 md:grid-cols-5">
+                    {popular.slice(0, 5).map((movie: previewMovies) => (
+                        <div key={movie.id} className="p-4 my-2">
                             <Image
-                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path || movie.backdrop_path}`}
                                 alt={movie.title}
                                 width={300}
                                 height={300}
                             />
-                            <h3 className="text-center">{movie.title}</h3>
+                            <div className="my-2">
+                                <h3 className="text-center">{movie.title}</h3>
+                            </div>
                         </div>
                     ))}
                 </div>

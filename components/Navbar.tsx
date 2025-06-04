@@ -3,10 +3,16 @@ import React from 'react'
 
 const Navbar = () => {
     return (
-        <div className='flex justify-between'>
-            <Link href='/popular-movies' className="underline text-blue-500">Popular Movies</Link>
-            <Link href='/trending-movies' className="underline text-blue-500">Trening Movies</Link>
-            <Link href='/login' className="underline text-blue-500">Login</Link>
+        <div className='flex justify-around py-2'>
+            <div>
+                <Link href='/'>
+                    <h1 className="text-xl ">MovieDb</h1>
+                </Link>
+            </div>
+            <div className="flex gap-3">
+                <Link href='/popular-movies' className="underline">Popular Movies</Link>
+                <Link href='/trending-movies' className="underline">Trening Movies</Link>
+            </div>
         </div>
     )
 }

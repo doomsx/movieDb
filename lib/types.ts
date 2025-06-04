@@ -7,3 +7,10 @@ export type movies = {
     poster_path: string
     backdrop_path: string
 }
+
+export type previewMovies ={
+    id: number;
+    title: string;
+    poster_path: string;
+    backdrop_path: string;
+}
