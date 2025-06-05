@@ -1,25 +1,70 @@
-import { API_KEY } from '@/lib/types';
+import { API_KEY, MovieCategory } from '@/lib/types';
+const BASE_URL = "https://api.themoviedb.org/3"
 
-export const popularMovies = async () => {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+type MovieCategoryKey = keyof typeof MOVIE_CATEGORIES;
 
-    if (!response.ok) {
-        throw new Error("error fetching data");
+const MOVIE_CATEGORIES: Record<string, MovieCategory> = {
+    "popular": {
+        endpoint: '/movie/popular',
+        title: 'Popular Movies',
+        description: 'Discover the most popular movies right now',
+        revalidate: 3600, // 1 hour
+    },
+    "trending": {
+        endpoint: '/trending/movie/week',
+        title: 'Trending Movies',
+        description: 'Movies trending this week',
+        revalidate: 1800, // 30 minutes
+    },
+    'top-rated': {
+        endpoint: '/movie/top_rated',
+        title: 'Top Rated Movies',
+        description: 'The highest rated movies of all time',
+        revalidate: 7200, // 2 hours
+    },
+    "upcoming": {
+        endpoint: '/movie/upcoming',
+        title: 'Upcoming Movies',
+        description: 'Movies coming soon to theaters',
+        revalidate: 3600, // 1 hour
+    },
+    'now-playing': {
+        endpoint: '/movie/now_playing',
+        title: 'Now Playing',
+        description: 'Movies currently in theaters',
+        revalidate: 1800, // 30 minutes
+    }
+};
+
+export const fetchMoviesByCategory = async (category: MovieCategoryKey, page = 1) => {
+    if (!API_KEY) {
+        throw new Error("API key not configured")
     }
 
-    const data = await response.json()
-    console.log(data.results)
-    return data.results
-}
-
-export const trendingMovies = async () => {
-    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&language=en-US&page=1`)
-
-    if (!response.ok) {
-        throw new Error("Error fetching data");
+    const categoryConfig = MOVIE_CATEGORIES[category]
+    if (!categoryConfig) {
+        throw new Error(`Invalid Category: ${category}`)
     }
 
+    const url = `${BASE_URL}${categoryConfig.endpoint}?api_key=${API_KEY}&page=${page}`;
+
+    const response = await fetch(url, {
+        next:
+        {
+            revalidate: categoryConfig.revalidate,
+            tags: [`movies-${category}`]
+        }
+    })
+
     const data = await response.json()
-    console.log(data.results)
-    return data.results
+    return { ...data, category: categoryConfig }
 }
+
+export const getCategoryConfig = (category: MovieCategoryKey) => {
+    return MOVIE_CATEGORIES[category] || null
+}
+
+export const getAllCategory = () => {
+    return Object.keys(MOVIE_CATEGORIES) as MovieCategoryKey[]
+}
+

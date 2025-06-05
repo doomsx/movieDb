@@ -1,6 +1,6 @@
 const page = () => {
     return (
-        <div>Welcome</div>
+        <div>category</div>
     )
 }
 

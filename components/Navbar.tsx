@@ -10,8 +10,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex gap-3">
-                <Link href='/popular-movies' className="underline">Popular Movies</Link>
-                <Link href='/trending-movies' className="underline">Trening Movies</Link>
+                <Link href='/movies' className="underline">Movies</Link>
             </div>
         </div>
     )
