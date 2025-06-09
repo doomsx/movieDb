@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero"
 import { fetchMoviesByCategory, getAllCategory } from "@/lib/actions"
 import { previewMovies } from "@/lib/types"
 import Image from "next/image"
@@ -13,6 +14,7 @@ const page = async () => {
 
     return (
         <section className="px-5 space-y-5">
+            <Hero />
             <div className="space-y-3">
                 <div className="flex justify-between">
                     <h1>Popular</h1>
