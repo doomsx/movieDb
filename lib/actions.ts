@@ -68,3 +68,7 @@ export const getAllCategory = () => {
     return Object.keys(MOVIE_CATEGORIES) as MovieCategoryKey[]
 }
 
+export const getMovieDetails = async (id: string) => {
+    console.log(id)
+}
+

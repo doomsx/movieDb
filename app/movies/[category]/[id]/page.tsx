@@ -1,8 +1,11 @@
+import { getMovieDetails } from "@/lib/actions"
+
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
     const id = (await params).id
-    console.log(id)
+    const details = await getMovieDetails(id)
+    console.log(details)
     return (
-        <div></div>
+        <section></div>
     )
 }
 
