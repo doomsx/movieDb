@@ -22,7 +22,7 @@ const page = async () => {
                 </div>
                 <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
                     {popular.results.slice(0, 5).map((data: previewMovies) => (
-                        <div key={data.id} className="">
+                        <Link href={`/movies/details/${data.id}`} key={data.id} className="">
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${data.poster_path || data.backdrop_path}`}
                                 alt=""
@@ -30,7 +30,7 @@ const page = async () => {
                                 height={300}
                             />
                             <h1 className="text-xl font-bold text-center">{data.title}</h1>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -42,7 +42,7 @@ const page = async () => {
                 </div>
                 <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
                     {trending.results.slice(0, 5).map((data: previewMovies) => (
-                        <div key={data.id} className="">
+                        <Link href={`/movies/details/${data.id}`} key={data.id} className="">
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${data.poster_path || data.backdrop_path}`}
                                 alt=""
@@ -50,7 +50,7 @@ const page = async () => {
                                 height={300}
                             />
                             <h1 className="text-xl font-bold text-center">{data.title}</h1>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -62,7 +62,7 @@ const page = async () => {
                 </div>
                 <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
                     {top_rated.results.slice(0, 5).map((data: previewMovies) => (
-                        <div key={data.id} className="">
+                        <Link href={`/movies/details/${data.id}`} key={data.id} className="">
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${data.poster_path || data.backdrop_path}`}
                                 alt=""
@@ -70,7 +70,7 @@ const page = async () => {
                                 height={300}
                             />
                             <h1 className="text-xl font-bold text-center">{data.title}</h1>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -82,7 +82,7 @@ const page = async () => {
                 </div>
                 <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
                     {upcoming.results.slice(0, 5).map((data: previewMovies) => (
-                        <div key={data.id} className="">
+                        <Link href={`/movies/details/${data.id}`} key={data.id} className="">
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${data.poster_path || data.backdrop_path}`}
                                 alt=""
@@ -90,7 +90,7 @@ const page = async () => {
                                 height={300}
                             />
                             <h1 className="text-xl font-bold text-center">{data.title}</h1>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -102,7 +102,7 @@ const page = async () => {
                 </div>
                 <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
                     {now_playing.results.slice(0, 5).map((data: previewMovies) => (
-                        <div key={data.id} className="">
+                        <Link href={`/movies/details/${data.id}`} key={data.id} className="">
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${data.poster_path || data.backdrop_path}`}
                                 alt=""
@@ -110,7 +110,7 @@ const page = async () => {
                                 height={300}
                             />
                             <h1 className="text-xl font-bold text-center">{data.title}</h1>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
