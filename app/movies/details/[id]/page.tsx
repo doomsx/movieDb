@@ -5,7 +5,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
     const details = await getMovieDetails(id)
     console.log(details)
     return (
-        <section></div>
+        <section>{id}</section>
     )
 }
 
