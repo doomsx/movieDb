@@ -22,3 +22,9 @@ export type MovieCategory = {
     description: string;
     revalidate: number;
 };
+
+export type PaginationProps = {
+    totalPages: number
+    currentPage: number
+    baseUrl: string
+}

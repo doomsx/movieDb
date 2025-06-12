@@ -1,4 +1,5 @@
 import { API_KEY, MovieCategory } from '@/lib/types';
+
 const BASE_URL = "https://api.themoviedb.org/3"
 
 type MovieCategoryKey = keyof typeof MOVIE_CATEGORIES;
