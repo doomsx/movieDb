@@ -6,7 +6,7 @@ import burger from "@/public/burger.svg"
 import close from "@/public/close.svg"
 
 const Navbar = () => {
-    const nav = useRef<HTMLHtmlElement | null>(null)
+    const nav = useRef<HTMLElement | null>(null)
 
     const openNav = () => {
         if (nav.current) {
@@ -32,7 +32,7 @@ const Navbar = () => {
                 <Image
                     src={close}
                     onClick={openNav}
-                    alt=''
+                    alt='close'
                     width={40}
                     height={40}
                     className='block right-0 fixed px-2 py-3 md:hidden'
@@ -41,8 +41,11 @@ const Navbar = () => {
                     {categories.map((cat) => (
                         <li key={cat.key}>
                             <Link
-                                href={`/movies/${cat.key}`}
-                                className="text-white">{cat.label}
+                                href={`/movies/${cat.key}/page/1`}
+                                className="text-white"
+                                onClick={openNav}
+                            >
+                                {cat.label}
                             </Link>
                         </li>
                     ))}
@@ -51,7 +54,7 @@ const Navbar = () => {
 
             <Image
                 src={burger}
-                alt=""
+                alt="menu"
                 onClick={openNav}
                 width={40}
                 height={40}
