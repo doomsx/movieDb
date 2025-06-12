@@ -1,10 +1,9 @@
 import Card from "@/components/Card"
-import { notFound, redirect } from "next/navigation"
+import { notFound } from "next/navigation"
 import { fetchMoviesByCategory, getAllCategory, getCategoryConfig } from "@/lib/actions"
 import { movies } from "@/lib/types"
 import Link from "next/link"
 import Pagination from "@/components/Pagination"
-import { get } from "node:http"
 
 export async function generateStaticParams() {
     const categories = getAllCategory()
