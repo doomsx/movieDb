@@ -28,3 +28,26 @@ export type PaginationProps = {
     currentPage: number
     baseUrl: string
 }
+
+type Genre = {
+    id: string
+    name: string
+}
+
+export type MovieDetailsType = {
+    original_title: string
+    overview: string
+    release_date: string
+    tagline: string
+    poster_path: string;
+    backdrop_path: string;
+    genres: Genre[]
+    runtime: number
+    vote_average: number
+    vote_count: number
+}
+
+export type movieImageType = {
+    file_path: string
+}
+

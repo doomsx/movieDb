@@ -1,6 +1,7 @@
 import { API_KEY, MovieCategory } from '@/lib/types';
 
 const BASE_URL = "https://api.themoviedb.org/3"
+export const IMAGE_URL = `https://image.tmdb.org/t/p/w500`
 
 type MovieCategoryKey = keyof typeof MOVIE_CATEGORIES;
 
@@ -70,6 +71,17 @@ export const getAllCategory = () => {
 }
 
 export const getMovieDetails = async (id: string) => {
-    console.log(id)
+    const response = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+    return await response.json()
+}
+
+export const getMovieCredis = async (id: string) => {
+    const response = await fetch(`${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`)
+    return await response.json()
+}
+
+export const getMovieRecommendations = async (id: string) => {
+    const response = await fetch(`${BASE_URL}/movie/${id}/recommendations?api_key=${API_KEY}`)
+    return await response.json()
 }
 
