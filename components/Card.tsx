@@ -1,3 +1,4 @@
+import { IMAGE_URL } from '@/lib/actions'
 import { movies } from '@/lib/types'
 import Image from 'next/image'
 import React from 'react'
@@ -6,7 +7,7 @@ const Card = ({ movie }: { movie: movies }) => {
     return (
         <div className='p-4 my-2'>
             <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path || movie.backdrop_path}`}
+                src={`${IMAGE_URL}${movie.poster_path || movie.backdrop_path}`}
                 alt={movie.title}
                 width={300}
                 height={300}
